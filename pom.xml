@@ -29,12 +29,12 @@
     <licenses>
         <license>
             <name>GNU Lessor/Library Public License, Version 3.0</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
         </license>
 
         <license>
             <name>GNU Public License, Version 3.0</name>
-            <url>http://www.gnu.org/licenses/gpl-3.0.txt</url>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
         </license>
     </licenses>
 
@@ -254,27 +254,27 @@
         <repository>
             <id>central</id>
             <name>Maven Repository Switchboard</name>
-            <url>http://repo1.maven.org/maven2</url>
+            <url>https://repo1.maven.org/maven2</url>
         </repository>
         <repository>
             <id>ibiblio</id>
             <name>ibiblio Repository Switchboard</name>
-            <url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
+            <url>https://mirrors.ibiblio.org/pub/mirrors/maven2</url>
         </repository>
         <repository>
             <id>jboss</id>
             <name>JBoss Repository</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+            <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository>
         <repository>
             <id>java.net</id>
             <name>java.net Repository</name>
-            <url>http://download.java.net/maven/2/</url>
+            <url>https://download.java.net/maven/2/</url>
         </repository>
         <repository>
             <id>opennms</id>
             <name>openmms Repository</name>
-            <url>http://repo.opennms.org/maven2/</url>
+            <url>https://repo.opennms.org/maven2/</url>
         </repository>
     </repositories>
 
