@@ -221,7 +221,7 @@ public abstract class Format
     public void unpackAttributes(AttributeList attrs, ByteBuffer buffer, int length, boolean pool) 
     {
     	AttributeParseContext ctx = new AttributeParseContext();
-		int pos = 0;
+		long pos = 0;
 
 		while (pos < length)
     	{
