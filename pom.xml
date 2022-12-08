@@ -94,6 +94,11 @@
         <version>1.2.24</version>
       </dependency>
       <dependency>
+        <groupId>gnu.getopt</groupId>
+        <artifactId>java-getopt</artifactId>
+        <version>1.0.13.redhat-5</version>
+      </dependency>
+      <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-reload4j</artifactId>
         <version>2.0.5</version>
@@ -117,24 +122,9 @@
       <url>https://repo1.maven.org/maven2</url>
     </repository>
     <repository>
-      <id>ibiblio</id>
-      <name>ibiblio Repository Switchboard</name>
-      <url>https://mirrors.ibiblio.org/pub/mirrors/maven2</url>
-    </repository>
-    <repository>
-      <id>jboss</id>
-      <name>JBoss Repository</name>
-      <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-    </repository>
-    <repository>
-      <id>java.net</id>
-      <name>java.net Repository</name>
-      <url>https://download.java.net/maven/2/</url>
-    </repository>
-    <repository>
-      <id>opennms</id>
-      <name>openmms Repository</name>
-      <url>https://repo.opennms.org/maven2/</url>
+      <id>redhat-ga</id>
+      <name>RedHat GA</name>
+      <url>https://maven.repository.redhat.com/ga</url>
     </repository>
   </repositories>
 
