@@ -65,6 +65,7 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- internal dependencies -->
       <dependency>
         <groupId>net.jradius</groupId>
         <artifactId>jradius-core</artifactId>
@@ -84,6 +85,18 @@
         <groupId>net.jradius</groupId>
         <artifactId>jradius-extended</artifactId>
         <version>${project.version}</version>
+      </dependency>
+
+      <!-- external dependencies -->
+      <dependency>
+        <groupId>ch.qos.reload4j</groupId>
+        <artifactId>reload4j</artifactId>
+        <version>1.2.24</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-reload4j</artifactId>
+        <version>2.0.5</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
