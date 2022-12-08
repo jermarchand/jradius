@@ -1,0 +1,7 @@
+# configure git to use this file with the following commands:
+# git config --global blame.ignoreRevsFile .git-blame-ignore-revs
+# git config --global blame.markIgnoredLines true
+# git config --global blame.markUnblamableLines true
+
+# first run of sortpom-maven-plugin
+de9d68a67cf9e24f9f4f19297d8c88021a993483
