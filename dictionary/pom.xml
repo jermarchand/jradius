@@ -1,53 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jradius</groupId>
-  <artifactId>jradius-dictionary</artifactId>
-  <name>${project.artifactId}-${project.version}</name>
-  <description>JRadius Dictionary</description>
-  
+
   <parent>
     <groupId>net.jradius</groupId>
     <artifactId>jradius</artifactId>
     <version>1.1.6-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  
+  <groupId>net.jradius</groupId>
+  <artifactId>jradius-dictionary</artifactId>
+  <name>${project.artifactId}-${project.version}</name>
+  <description>JRadius Dictionary</description>
+
   <dependencies>
     <dependency>
       <groupId>net.jradius</groupId>
       <artifactId>jradius-core</artifactId>
     </dependency>
   </dependencies>
-  
+
   <build>
-    <sourceDirectory>target/dictionary-src</sourceDirectory>
     <plugins>
       <plugin>
-	<artifactId>maven-antrun-plugin</artifactId>
-	<executions>
-	  <execution>
-	    <phase>generate-sources</phase>
-	    <configuration>            
-	      <tasks>
-		<java fork="false" classname="net.jradius.freeradius.RadiusDictionary" maxmemory="800m" failonerror="true"> 
-		  <classpath>
-		    <path refid="maven.compile.classpath" />
-		  </classpath>
-		  <arg value="net.jradius.dictionary" />
-		  <arg value="${basedir}/../freeradius/dict" />
-		  <arg value="${basedir}/target/dictionary-src" />
-		</java>
-	      </tasks>
-	    </configuration>
-	    <goals>
-	      <goal>run</goal>
-	    </goals>
-	  </execution>
-	</executions>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <tasks>
+                <java classname="net.jradius.freeradius.RadiusDictionary" failonerror="true" fork="false" maxmemory="800m">
+                  <classpath>
+                    <path refid="maven.compile.classpath"></path>
+                  </classpath>
+                  <arg value="net.jradius.dictionary"></arg>
+                  <arg value="${basedir}/../freeradius/dict"></arg>
+                  <arg value="${basedir}/target/dictionary-src"></arg>
+                </java>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
+    <sourceDirectory>target/dictionary-src</sourceDirectory>
 
-   </build>
+  </build>
 
 </project>

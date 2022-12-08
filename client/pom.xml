@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>net.jradius</groupId>
-  <artifactId>jradius-client</artifactId>
-  <name>${project.artifactId}-${project.version}</name>
-  <description>JRadius Client Package</description>
-  
+
   <parent>
     <groupId>net.jradius</groupId>
     <artifactId>jradius</artifactId>
     <version>1.1.6-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  
+  <groupId>net.jradius</groupId>
+  <artifactId>jradius-client</artifactId>
+  <name>${project.artifactId}-${project.version}</name>
+  <description>JRadius Client Package</description>
+
   <dependencies>
     <dependency>
       <groupId>net.jradius</groupId>
       <artifactId>jradius-core</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>net.jradius</groupId>
       <artifactId>jradius-dictionary</artifactId>
@@ -31,33 +31,33 @@
     </dependency>
 
   </dependencies>
-  
+
   <build>
     <plugins>
       <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-dependency-plugin</artifactId>
-	<executions>
-	  <execution>
-	    <id>copy-dependencies</id>
-	    <phase>package</phase>
-	    <goals>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <goals>
               <goal>copy-dependencies</goal>
-	    </goals>
-	    <configuration>
+            </goals>
+            <phase>package</phase>
+            <configuration>
               <outputDirectory>target/lib</outputDirectory>
               <overWriteReleases>false</overWriteReleases>
               <overWriteSnapshots>false</overWriteSnapshots>
               <overWriteIfNewer>true</overWriteIfNewer>
-	    </configuration>
-	  </execution>
-	</executions>
-      </plugin> 
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
       </plugin>
     </plugins>
-    
-   </build>
+
+  </build>
 
 </project>
