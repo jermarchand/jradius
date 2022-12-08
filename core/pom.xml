@@ -5,7 +5,6 @@
   <groupId>net.jradius</groupId>
   <artifactId>jradius-core</artifactId>
   <name>${project.artifactId}-${project.version}</name>
-  <version>1.1.6-SNAPSHOT</version>
   <description>JRadius Core</description>
   
   <parent>
@@ -95,16 +94,6 @@
         </includes>
       </resource>
     </resources>
-    <plugins>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<configuration>
-	  <source>8</source>
-	  <target>8</target>
-	</configuration>
-      </plugin>
-    </plugins>
   </build>
 
 </project>
