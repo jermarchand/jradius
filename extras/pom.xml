@@ -4,19 +4,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.opennms.thirdparty.jradius</groupId>
+    <groupId>com.github.jermarchand.jradius</groupId>
     <artifactId>jradius</artifactId>
-    <version>2.0.0-ONMS-SNAPSHOT</version>
+    <version>2.0.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <groupId>org.opennms.thirdparty.jradius</groupId>
+  <groupId>com.github.jermarchand.jradius</groupId>
   <artifactId>jradius-extras</artifactId>
   <name>${project.artifactId}-${project.version}</name>
   <description>JRadius Extras</description>
 
   <dependencies>
     <dependency>
-      <groupId>org.opennms.thirdparty.jradius</groupId>
+      <groupId>com.github.jermarchand.jradius</groupId>
       <artifactId>jradius-extended</artifactId>
     </dependency>
 
