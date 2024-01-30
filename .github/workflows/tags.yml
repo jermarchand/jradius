@@ -25,9 +25,9 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: "temurin"
           java-version: 17
-          java-package: 'jdk'
+          java-package: "jdk"
 
       - id: get_version
         run: echo "VERSION=$(echo $GITHUB_REF | cut -d / -f 3)" >> $GITHUB_OUTPUT
@@ -38,71 +38,15 @@ jobs:
       - name: Build with Maven
         run: mvn -B clean verify
 
-      - name: Upload jradius-apps jar
+      - name: Upload jradius jar
         uses: actions/upload-artifact@v3
         with:
-          name: jar
           path: apps/target/*.jar
 
-      - name: Upload jradius-client-release zip
+      - name: Upload jradius zip
         uses: actions/upload-artifact@v3
         with:
-          name: zip
           path: client/target/*.zip
-
-      - name: Upload jradius-client jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: client/target/*.jar
-
-      - name: Upload jradius-core jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: core/target/*.jar
-
-      - name: Upload jradius-dictionary jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: dictionary/target/*.jar
-
-      - name: Upload jradius-dictionary-min jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: dictionary-min/target/*.jar
-
-      - name: Upload jradius-example jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: example/target/*.jar
-
-      - name: Upload jradius-extended jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: extended/target/*.jar
-
-      - name: Upload jradius-extras jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: extras/target/*.jar
-
-      - name: Upload jradius-server-release zip
-        uses: actions/upload-artifact@v3
-        with:
-          name: zip
-          path: server/target/*.zip
-
-      - name: Upload jradius-server jar
-        uses: actions/upload-artifact@v3
-        with:
-          name: jar
-          path: server/target/*.jar
 
   release:
     needs: build
@@ -112,19 +56,14 @@ jobs:
       - name: Checkout artifact
         uses: actions/download-artifact@v3
         with:
-          name: jar
           path: target
 
+      - name: Test
+        run: ls target/artifact
+
       - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ needs.build.outputs.version }}
-          name: ${{ needs.build.outputs.version }}
+        uses: ncipollo/release-action@v1
+        with:          
           body: |
             ${{github.event.head_commit.message}}
-          draft: false
-          prerelease: false
-          files: |
-            ./target/keycloak-franceconnect-${{ needs.build.outputs.version }}-javadoc.jar
-            ./target/keycloak-franceconnect-${{ needs.build.outputs.version }}-sources.jar
-            ./target/keycloak-franceconnect-${{ needs.build.outputs.version }}.jar
+          artifacts: "target/artifact/*.zip,target/artifact/*.jar"
