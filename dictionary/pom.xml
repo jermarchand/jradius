@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.github.jermarchand.jradius</groupId>
     <artifactId>jradius</artifactId>
-    <version>2.0.0-SNAPSHOT</version>
+    <version>2.0.1-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>com.github.jermarchand.jradius</groupId>
@@ -43,7 +43,7 @@
                 <uptodate property="dictionary.uptodate" targetfile="${project.build.directory}/${project.build.finalName}.jar">
                   <srcfiles dir="${dictionary.srcdir}" includes="**/*" />
                 </uptodate>
-                <echo message="check-uptodate result: ${dictionary.uptodate}"/>
+                <echo message="check-uptodate result: ${dictionary.uptodate}" />
               </target>
             </configuration>
           </execution>
@@ -55,13 +55,13 @@
             <phase>generate-sources</phase>
             <configuration>
               <target name="generate-classes" unless="dictionary.uptodate">
-                <java classname="net.jradius.freeradius.RadiusDictionary" failonerror="true" fork="false" maxmemory="800m">
+                <java classname="net.jradius.freeradius.RadiusDictionary" failonerror="true" fork="true" maxmemory="800m">
                   <classpath>
-                    <path refid="maven.compile.classpath"></path>
+                    <path refid="maven.compile.classpath" />
                   </classpath>
-                  <arg value="net.jradius.dictionary"></arg>
-                  <arg value="${dictionary.srcdir}"></arg>
-                  <arg value="${dictionary.targetdir}"></arg>
+                  <arg value="net.jradius.dictionary" />
+                  <arg value="${dictionary.srcdir}" />
+                  <arg value="${dictionary.targetdir}" />
                 </java>
               </target>
             </configuration>
